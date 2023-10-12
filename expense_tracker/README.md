@@ -4,7 +4,7 @@ The homework will be based on this project named "Expense Tracker",where users w
 
 
 ## Group: Git Lucky
-- Ishita Chakravarty
+- Ishita Chaudhary
 - Mihir Thalanki
 
 ## Compile
