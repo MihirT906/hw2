@@ -1,6 +1,11 @@
-# hw1- Manual Review
+# hw2- Design & Implementation
 
 The homework will be based on this project named "Expense Tracker",where users will be able to add/remove daily transaction. 
+
+
+## Group: Git Lucky
+- Ishita Chakravarty
+- Mihir Thalanki
 
 ## Compile
 
