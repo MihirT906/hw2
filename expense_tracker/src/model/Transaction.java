@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class Transaction {
+public final class Transaction {
 
   private final double amount;
   private final String category;
