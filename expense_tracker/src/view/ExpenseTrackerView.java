@@ -46,7 +46,11 @@ public class ExpenseTrackerView extends JFrame {
     categoryField = new JTextField(10);
 
     // Create table
-    transactionsTable = new JTable(model);
+    transactionsTable = new JTable(model){@Override
+      public boolean isCellEditable(int row, int column) {
+          // Make the entire table non-editable
+          return false;
+      }};
   
     // Layout components
     JPanel inputPanel = new JPanel();
