@@ -51,10 +51,10 @@ public class ExpenseTrackerController {
   
   // Other controller methods
   public boolean applyFilter(String filterType, String filterVal) {
-    List<Transaction> filteredTransactions = new ArrayList<>(); ;
+    List<Transaction> filteredTransactions = new ArrayList<>(); 
     if (filterType.equals("Amount")) {
+      try{
         double convAmountValue = Double.parseDouble(filterVal);
-
         if(!InputValidation.isValidAmount(convAmountValue)){
           return false;
         }
@@ -63,6 +63,13 @@ public class ExpenseTrackerController {
 
         filteredTransactions = amtFilter.filter(model.getTransactions());
         System.out.println("amt= " + filteredTransactions);
+      }catch(Exception e){
+        return false;
+      }
+
+        
+
+        
 
     } else if (filterType.equals("Category")) {
         CategoryFilter catFilter = new CategoryFilter(filterVal);
