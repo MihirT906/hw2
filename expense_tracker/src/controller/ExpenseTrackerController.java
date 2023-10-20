@@ -67,10 +67,6 @@ public class ExpenseTrackerController {
         return false;
       }
 
-        
-
-        
-
     } else if (filterType.equals("Category")) {
         CategoryFilter catFilter = new CategoryFilter(filterVal);
 
