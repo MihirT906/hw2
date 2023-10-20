@@ -2,9 +2,13 @@ package controller;
 
 import view.ExpenseTrackerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 
+import model.CategoryFilter;
+import model.AmountFilter;
 
 import model.ExpenseTrackerModel;
 import model.Transaction;
@@ -46,4 +50,36 @@ public class ExpenseTrackerController {
   }
   
   // Other controller methods
+  public boolean applyFilter(String filterType, String filterVal) {
+    List<Transaction> filteredTransactions = new ArrayList<>(); ;
+    if (filterType.equals("Amount")) {
+        double convAmountValue = Double.parseDouble(filterVal);
+
+        if(!InputValidation.isValidAmount(convAmountValue)){
+          return false;
+        }
+
+        AmountFilter amtFilter = new AmountFilter(convAmountValue);
+
+        filteredTransactions = amtFilter.filter(model.getTransactions());
+        System.out.println("amt= " + filteredTransactions);
+
+    } else if (filterType.equals("Category")) {
+        CategoryFilter catFilter = new CategoryFilter(filterVal);
+
+        if(!InputValidation.isValidCategory(filterVal)){
+          return false;
+        }
+
+        filteredTransactions = catFilter.filter(model.getTransactions());
+        System.out.println("cat= " + filteredTransactions);
+    } else {
+        // JOptionPane.showMessageDialog(view, "Invalid Filter Type");
+        // System.out.println("Invalid Filter Type");
+        return false;
+    }
+
+    view.highlightTransactions(filteredTransactions);
+    return true;
+}
 }
